@@ -1,0 +1,233 @@
+[
+  {
+    "id": 1,
+    "title": "Parigi",
+    "category": "Cultura",
+    "description": "Scopri la magia della Città della Luce con un viaggio indimenticabile nella capitale francese. Passeggia lungo gli Champs-Élysées, ammira la maestosa Torre Eiffel che si illumina al tramonto e visita il celebre Museo del Louvre con la Gioconda. Esplora il quartiere bohémien di Montmartre con la Basilica del Sacro Cuore, goditi una crociera romantica sulla Senna e rilassati nei bellissimi giardini di Tuileries. Assapora la raffinata cucina francese nei bistrot tradizionali, scopri i mercatini vintage del Marais e vivi l'atmosfera unica dei café parigini. Ogni angolo di Parigi racconta una storia di arte, cultura e romanticismo che ti conquisterà per sempre.",
+    "price": 1200,
+    "durationDays": 5,
+    "img": "https://images.unsplash.com/photo-1502602898536-47ad22581b52?q=80&w=1173&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "departure": "2025-03-15",
+    "return": "2025-03-20"
+  },
+  {
+    "id": 2,
+    "title": "Tokyo",
+    "category": "Cultura",
+    "description": "Immergiti nell'affascinante contrasto tra tradizione e modernità della capitale giapponese. Visita i templi storici di Asakusa e Meiji, passeggia tra i grattacieli di Shibuya e Shinjuku, e scopri l'incantevole quartiere di Harajuku. Partecipa a una cerimonia del tè tradizionale, impara l'arte del sushi con chef esperti e ammira i ciliegi in fiore nei parchi di Tokyo. Esplora i mercati di Tsukiji, rilassati nelle terme tradizionali e vivi l'esperienza unica di pernottare in un ryokan autentico. Tokyo ti sorprenderà con la sua energia vibrante, la gentilezza dei suoi abitanti e una cultura millenaria che convive perfettamente con l'innovazione tecnologica.",
+    "price": 1800,
+    "durationDays": 7,
+    "img": "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "departure": "2025-04-01",
+    "return": "2025-04-08"
+  },
+  {
+    "id": 3,
+    "title": "Londra",
+    "category": "Cultura",
+    "description": "Esplora la capitale britannica ricca di storia, cultura e tradizioni affascinanti. Visita l'iconico Big Ben e il Palazzo di Westminster, attraversa il suggestivo Tower Bridge e scopri i tesori della Corona nella Torre di Londra. Passeggia nei Royal Parks come Hyde Park e Regent's Park, esplora i famosi mercati di Camden e Portobello Road. Assisti a uno spettacolo nel West End, visita i musei gratuiti come il British Museum e la Tate Modern. Vivi l'esperienza del tradizionale afternoon tea, scopri i pub storici e immergiti nell'atmosfera multiculturale di una delle città più cosmopolite al mondo.",
+    "price": 1000,
+    "durationDays": 4,
+    "img": "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "departure": "2025-01-20",
+    "return": "2025-01-24"
+  },
+  {
+    "id": 4,
+    "title": "Roma",
+    "category": "Cultura",
+    "description": "Cammina nella storia della Città Eterna, dove ogni pietra racconta millenni di civiltà. Ammira il maestoso Colosseo, esplora i Fori Imperiali e lancia una moneta nella Fontana di Trevi per assicurarti un ritorno. Visita i Musei Vaticani con la Cappella Sistina di Michelangelo, scopri le catacombe e passeggia per Trastevere tra vicoli pittoreschi e trattorie autentiche. Assapora la vera cucina romana con carbonara, amatriciana e supplì, e goditi un aperitivo al tramonto con vista sui tetti della capitale. Roma ti conquisterà con la sua bellezza senza tempo e l'accoglienza calorosa dei suoi abitanti.",
+    "price": 900,
+    "durationDays": 4,
+    "img": "https://images.unsplash.com/photo-1552832230-c0197dd311b5?q=80&w=1196&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "departure": "2025-01-15",
+    "return": "2025-01-19"
+  },
+  {
+    "id": 5,
+    "title": "New York",
+    "category": "Avventura",
+    "description": "Vivi l'energia pulsante della Grande Mela, la città che non dorme mai. Ammira la vista mozzafiato dall'Empire State Building e dal Top of the Rock, passeggia nell'iconico Central Park e attraversa il famoso Brooklyn Bridge. Esplora i diversi quartieri da Greenwich Village a SoHo, scopri i musei di fama mondiale come il MoMa e il Metropolitan, e assisti a uno spettacolo di Broadway. Vivi l'esperienza unica di Times Square, esplora la High Line, e scopri la street art di Williamsburg. New York ti stupirà con la sua diversità culturale, i grattacieli mozzafiato e le opportunità infinite di divertimento e scoperta.",
+    "price": 1500,
+    "durationDays": 6,
+    "img": "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "departure": "2025-03-05",
+    "return": "2025-03-11"
+  },
+  {
+    "id": 6,
+    "title": "Barcellona",
+    "category": "Cultura",
+    "description": "Scopri la vivace capitale catalana dove l'arte di Gaudí incontra la passione mediterranea. Ammira la maestosa Sagrada Familia, passeggia nel colorato Park Güell e visita Casa Batlló con le sue forme oniriche. Perdi nella magia delle Ramblas, esplora il Quartiere Gotico e rilassati nelle splendide spiagge urbane. Assapora le tapas nei bar tradizionali, scopri l'arte di Picasso nel museo dedicato e vivi la movida notturna catalana. Barcellona ti conquisterà con la sua architettura unica, la gastronomia eccellente e l'energia contagiosa che si respira in ogni angolo della città.",
+    "price": 800,
+    "durationDays": 4,
+    "img": "https://images.unsplash.com/photo-1539037116277-4db20889f2d4?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "departure": "2025-05-01",
+    "return": "2025-05-05"
+  },
+  {
+    "id": 7,
+    "title": "Amsterdam",
+    "category": "Relax",
+    "description": "Immergiti nell'atmosfera rilassata e tolerante della capitale olandese con i suoi canali pittoreschi e case storiche inclinate. Naviga sui canali con una crociera romantica, visita i musei di fama mondiale come il Van Gogh Museum e il Rijksmuseum. Passeggia nel quartiere a luci rosse, esplora il mercato dei fiori galleggiante e rilassati nei coffee shop caratteristici. Scopri il Quartiere Jordaan con le sue gallerie d'arte e boutique vintage, visita la casa di Anna Frank e pedala come un vero olandese tra i canali. Amsterdam ti affascinerà con la sua mentalità aperta, l'architettura del XVII secolo e la qualità della vita incomparabile.",
+    "price": 700,
+    "durationDays": 3,
+    "img": "https://images.unsplash.com/photo-1534351590666-13e3e96b5017?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "departure": "2025-06-15",
+    "return": "2025-06-18"
+  },
+  {
+    "id": 8,
+    "title": "Vienna",
+    "category": "Cultura",
+    "description": "Vivi l'eleganza imperiale della capitale austriaca, dove la musica classica e l'architettura barocca creano un'atmosfera magica. Visita il sontuoso Palazzo di Schönbrunn, ascolta un concerto nell'Opera di Stato e passeggia nel centro storico Patrimonio UNESCO. Scopri i caffè storici dove gustare l'autentica Sachertorte, esplora i mercati tradizionali e ammira le opere di Klimt al Belvedere. Vienna ti incanterà con la sua raffinatezza culturale, i palazzi imperiali e l'atmosfera romantica che ha ispirato compositori come Mozart e Strauss.",
+    "price": 950,
+    "durationDays": 4,
+    "img": "https://images.unsplash.com/photo-1516550748352-8ec8eb93c94a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "departure": "2025-04-20",
+    "return": "2025-04-24"
+  },
+  {
+    "id": 9,
+    "title": "Berlino",
+    "category": "Cultura",
+    "description": "Esplora la capitale tedesca dove la storia moderna si intreccia con una vivace scena culturale contemporanea. Cammina lungo i resti del Muro di Berlino, visita il memoriale dell'Olocausto e scopri la vibrante East Side Gallery. Esplora l'isola dei musei, rilassati nei beer garden e vivi la famosa vita notturna berlinese. Scopri i quartieri alternativi di Kreuzberg e Prenzlauer Berg, visita i mercati delle pulci e immergiti nell'arte urbana che colora la città. Berlino ti sorprenderà con la sua capacità di reinventarsi, la sua scena artistica underground e l'energia creativa che permea ogni quartiere.",
+    "price": 850,
+    "durationDays": 4,
+    "img": "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "departure": "2025-07-10",
+    "return": "2025-07-14"
+  },
+  {
+    "id": 10,
+    "title": "Praga",
+    "category": "Cultura",
+    "description": "Scopri la magia della Città dalle Cento Torri, dove l'architettura gotica e barocca crea scenari da favola. Ammira il celebre Orologio Astronomico, attraversa il suggestivo Ponte Carlo e visita il maestoso Castello di Praga. Esplora la Città Vecchia con le sue piazze medievali, assapora la famosa birra ceca nelle birrerie storiche e passeggia nel quartiere ebraico ricco di storia. Scopri i mercatini natalizi se visiti in inverno, ammira le vetrate colorate delle chiese gotiche e lasciati conquistare dall'atmosfera romantica che rende Praga una delle città più affascinanti d'Europa.",
+    "price": 600,
+    "durationDays": 3,
+    "img": "https://images.unsplash.com/photo-1541849546-216549ae216d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "departure": "2025-03-01",
+    "return": "2025-03-04"
+  },
+  {
+    "id": 11,
+    "title": "Dubrovnik",
+    "category": "Relax",
+    "description": "Scopri la perla dell'Adriatico, una città medievale perfettamente conservata che si affaccia su acque cristalline. Passeggia lungo le antiche mura cittadine con vista mozzafiato sul mare, esplora il centro storico Patrimonio UNESCO e rilassati nelle spiagge dalla ghiaia bianca. Visita il Palazzo del Rettore, ammira l'architettura barocca della Cattedrale e scopri i vicoli lastricati del centro. Gusta i frutti di mare freschi nei ristoranti sul porto, fai una gita alle isole Elafiti e goditi il tramonto dalla fortezza di Lovrijenac. Dubrovnik ti conquisterà con la sua bellezza senza tempo e l'atmosfera magica che ha fatto da sfondo a celebri serie TV.",
+    "price": 750,
+    "durationDays": 4,
+    "img": "https://images.unsplash.com/photo-1555990132-33e41d45e09f?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "departure": "2025-02-10",
+    "return": "2025-02-14"
+  },
+  {
+    "id": 12,
+    "title": "Copenhagen",
+    "category": "Cultura",
+    "description": "Immergiti nell'atmosfera hygge della capitale danese, famosa per il design, la sostenibilità e la qualità della vita. Visita i colorati edifici di Nyhavn, scopri il fascino della Sirenetta e passeggia nei giardini di Tivoli. Esplora il quartiere alternativo di Christiania, visita il castello di Rosenborg e pedala come un vero danese per la città. Assapora la nuova cucina nordica nei ristoranti stellati, scopri i mercati del food di Torvehallerne e rilassati nelle saune galleggianti. Copenhagen ti incanterà con il suo perfetto equilibrio tra tradizione e innovazione, sostenibilità e design scandinavo.",
+    "price": 900,
+    "durationDays": 3,
+    "img": "https://images.unsplash.com/photo-1513622470522-26c3c8a854bc?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "departure": "2025-06-01",
+    "return": "2025-06-04"
+  },
+  {
+    "id": 13,
+    "title": "Istanbul",
+    "category": "Cultura",
+    "description": "Vivi l'magia di una città che unisce Europa e Asia, dove la storia bizantina e ottomana si fondono in un mosaico culturale unico. Ammira la maestosa Basilica di Santa Sofia e la Moschea Blu, perdi nel Gran Bazar con i suoi profumi e colori orientali. Naviga sul Bosforo al tramonto, rilassati in un hammam tradizionale e assapora la cucina turca nei lokanta del quartiere di Galata. Esplora il palazzo Topkapi, scopri le cisterne bizantine sotterranee e vivi l'atmosfera vibrante del quartiere di Beyoğlu. Istanbul ti affascinerà con la sua posizione strategica tra due continenti e il suo patrimonio culturale millenario.",
+    "price": 650,
+    "durationDays": 4,
+    "img": "https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "departure": "2025-04-05",
+    "return": "2025-04-09"
+  },
+  {
+    "id": 14,
+    "title": "Lisbona",
+    "category": "Relax",
+    "description": "Scopri la capitale portoghese costruita su sette colline, dove l'oceano incontra una città ricca di storia e fascino autentico. Esplora i quartieri caratteristici di Alfama e Bairro Alto, ascolta il fado nelle taverne tradizionali e ammira gli azulejos che decorano gli edifici. Visita il monastero dos Jerónimos a Belém, assaggia i famosi pastéis de nata e prendi il tram storico numero 28. Rilassati nelle spiagge di Cascais e Sintra, esplora il romantico Palazzo da Pena e goditi la vista dal miradouro da Senhora do Monte. Lisbona ti conquisterà con la sua luce dorata, l'accoglienza calorosa e l'atmosfera nostalgica che pervade ogni angolo della città.",
+    "price": 550,
+    "durationDays": 3,
+    "img": "https://images.unsplash.com/photo-1555881400-74d7acaacd8b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "departure": "2025-01-20",
+    "return": "2025-01-23"
+  },
+  {
+    "id": 15,
+    "title": "Budapest",
+    "category": "Relax",
+    "description": "Immergiti nel fascino della Perla del Danubio, divisa dal fiume in Buda e Pest, ognuna con il suo carattere unico. Rilassati nelle terme storiche di Széchenyi e Gellért, esplora il castello di Buda e ammira la vista dal Bastione dei Pescatori. Passeggia sul Ponte delle Catene illuminato, visita il maestoso Parlamento e scopri i ruin pub nel quartiere ebraico. Naviga sul Danubio al tramonto, assapora la cucina ungherese nei ristoranti tradizionali e vivi la movida notturna di Pest. Budapest ti affascinerà con la sua architettura austro-ungarica, le terme curative e l'atmosfera romantica che la rende una delle capitali più belle d'Europa.",
+    "price": 500,
+    "durationDays": 3,
+    "img": "https://images.unsplash.com/photo-1541339907198-df8fb92d9be0?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "departure": "2025-07-15",
+    "return": "2025-07-18"
+  },
+  {
+    "id": 16,
+    "title": "Monaco",
+    "category": "Relax",
+    "description": "Vivi il lusso del Principato più glamour del mondo, dove yacht milionari attraccano nel porto più famoso del Mediterraneo. Prova l'emozione del Casinò di Monte Carlo, passeggia nei giardini esotici con vista mozzafiato e esplora il palazzo dei Grimaldi. Assisti al cambio della guardia, visita l'Oceanografico fondato dal Principe Alberto I e rilassati nelle spiagge esclusive. Scopri la collezione di auto d'epoca del principe, passeggia nel quartiere di Monaco-Ville e goditi la vista dal Rocher. Monaco ti incanterà con il suo fascino principesco, l'eleganza senza tempo e l'atmosfera esclusiva che attira VIP da tutto il mondo.",
+    "price": 1500,
+    "durationDays": 2,
+    "img": "https://images.unsplash.com/photo-1559628233-b1ed36df2b6e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "departure": "2025-05-15",
+    "return": "2025-05-17"
+  },
+  {
+    "id": 17,
+    "title": "Edimburgo",
+    "category": "Cultura",
+    "description": "Scopri la capitale scozzese dove storia medievale e tradizioni celtiche creano un'atmosfera magica e misteriosa. Esplora il maestoso castello che domina la città, passeggia lungo la Royal Mile nel centro storico e scopri i close e wynds nascosti. Partecipa al famoso Festival di Edimburgo se visiti in agosto, visita il palazzo di Holyroodhouse e rilassati nei pub storici degustando whisky scozzese. Scopri le leggende di fantasmi nella città sotterranea, ammira la vista da Arthur's Seat e immergiti nella cultura scozzese con kilt e cornamuse. Edimburgo ti affascinerà con la sua architettura gotica, le tradizioni ancestrali e l'atmosfera che ha ispirato scrittori come Sir Walter Scott.",
+    "price": 800,
+    "durationDays": 3,
+    "img": "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "departure": "2025-06-20",
+    "return": "2025-06-23"
+  },
+  {
+    "id": 18,
+    "title": "Atene",
+    "category": "Cultura",
+    "description": "Cammina nella culla della democrazia e della filosofia occidentale, dove ogni pietra racconta 3000 anni di storia. Ammira il maestoso Partenone sull'Acropoli, visita l'Agorà antica dove Socrate teneva le sue lezioni e esplora il museo archeologico nazionale. Scopri il pittoresco quartiere di Plaka con le sue taverne tradizionali, rilassati nel Giardino Nazionale e ammira il cambio della guardia in Piazza Syntagma. Assapora la cucina greca con moussaka, souvlaki e ouzo, visita il tempio di Zeus Olimpio e goditi il tramonto dal colle del Licabetto. Atene ti conquisterà con il suo patrimonio archeologico incomparabile e l'ospitalità greca che ti farà sentire parte della famiglia.",
+    "price": 650,
+    "durationDays": 4,
+    "img": "https://images.unsplash.com/photo-1555993539-1732b0258235?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "departure": "2025-03-20",
+    "return": "2025-03-24"
+  },
+  {
+    "id": 19,
+    "title": "Zurigo",
+    "category": "Natura",
+    "description": "Scopri la città più cosmopolita della Svizzera, incastonata tra le Alpi e il lago cristallino. Passeggia nel centro storico medievale, esplora la Bahnhofstrasse per lo shopping di lusso e rilassati sulle rive del lago di Zurigo. Visita il quartiere di Niederdorf con i suoi caffè caratteristici, ammira la vista dalle torri della Grossmünster e scopri l'arte contemporanea nei musei della città. Prendi la funicolare fino al monte Üetliberg per una vista panoramica mozzafiato, esplora i giardini botanici e goditi un aperitivo nei rooftop bar con vista sulle Alpi. Zurigo ti incanterà con la sua qualità della vita svizzera, l'efficienza leggendaria e la bellezza naturale che circonda la metropoli finanziaria.",
+    "price": 1200,
+    "durationDays": 3,
+    "img": "https://images.unsplash.com/photo-1527668752968-14dc70a27c95?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "departure": "2025-06-20",
+    "return": "2025-06-23"
+  },
+  {
+    "id": 20,
+    "title": "Stoccolma",
+    "category": "Cultura",
+    "description": "Immergiti nella Venezia del Nord, costruita su 14 isole collegate da ponti eleganti e circondata da acque cristalline. Esplora Gamla Stan, il centro storico medievale con le sue case colorate e stradine acciottolate, visita il palazzo reale e la cattedrale di Storkyrkan. Scopri il museo Vasa con l'incredibile galeone del 1600, rilassati nel quartiere trendy di Södermalm e prova la cucina nordica nei ristoranti stellati. Visita l'arcipelago con una gita in battello, esplora il museo all'aperto di Skansen e immergiti nella cultura svedese con fika (pausa caffè) e kanelbullar. Stoccolma ti conquistò con il suo design scandinavo, la sostenibilità ambientale e l'equilibrio perfetto tra natura e modernità.",
+    "price": 950,
+    "durationDays": 4,
+    "img": "https://images.unsplash.com/photo-1509356843151-3e7d96241e11?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "departure": "2025-02-01",
+    "return": "2025-02-05"
+  },
+  {
+    "id": 21,
+    "title": "Madrid",
+    "category": "Cultura",
+    "description": "Vivi l'energia contagiosa della capitale spagnola, famosa per la sua vita notturna, l'arte e la passione per la vita. Visita il museo del Prado con i capolavori di Velázquez e Goya, esplora il Museo Reina Sofía con la Guernica di Picasso e passeggia nel Parco del Retiro. Scopri il quartiere di Malasaña con i suoi bar di tapas, vivi l'atmosfera del mercato di San Miguel e ammira l'architettura del Palazzo Reale. Assapora la cucina spagnola con jamón ibérico, paella e sangria, esplora il mercato del Rastro la domenica e goditi la movida madrileña che inizia dopo mezzanotte. Madrid ti conquistarà con la sua vitalità, l'ospitalità calorosa e l'arte che pervade ogni angolo della città.",
+    "price": 700,
+    "durationDays": 4,
+    "img": "https://images.unsplash.com/photo-1539037116277-4db20889f2d4?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    "departure": "2025-05-10",
+    "return": "2025-05-14"
+  }
+]
