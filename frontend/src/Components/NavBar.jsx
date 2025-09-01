@@ -13,10 +13,10 @@ export default function NavBar() {
                         <Link className="nav-link" to="/">Home</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/comparatore">Comparatore</Link>
+                        <Link className="nav-link" to="/compare">Comparatore</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/preferiti">Preferiti</Link>
+                        <Link className="nav-link" to="/favorites">Preferiti</Link>
                     </li>
                 </ul>
             </div>
