@@ -1,11 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Pages/HomePage";
-import Trips from "./Pages/Trips";
 import Compare from "./Pages/Compare";
 import Favorites from "./Pages/Favorites";
 import Layout from "./DefaultLayout/Layout";
-import { TravelProvider } from "./GlobalContext/GlobalContext"; // importa il provider
+import { TravelProvider } from "./GlobalContext/GlobalContext";
 import "./App.css";
+import TripDetail from "./Pages/TripDetail";
 
 function App() {
   return (
@@ -14,9 +14,9 @@ function App() {
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/trips" element={<Trips />} />
             <Route path="/compare" element={<Compare />} />
             <Route path="/favorites" element={<Favorites />} />
+            <Route path="/trips/:id" element={<TripDetail />} />
           </Routes>
         </Layout>
       </BrowserRouter>

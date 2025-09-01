@@ -48,5 +48,3 @@ export const TravelProvider = ({ children }) => {
         </TravelContext.Provider>
     );
 };
-
-
