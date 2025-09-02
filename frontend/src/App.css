@@ -171,6 +171,26 @@ footer {
   color: #555;
 }
 
+/* Compare Page Styles */
+.compare-details .detail-row {
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 8px;
+}
+
+.compare-details .detail-row:last-child {
+  border-bottom: none;
+}
+
+.border-dashed {
+  border: 2px dashed #dee2e6 !important;
+  background-color: #f8f9fa;
+}
+
+.border-dashed:hover {
+  border-color: #007bff !important;
+  background-color: #e3f2fd;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
 
