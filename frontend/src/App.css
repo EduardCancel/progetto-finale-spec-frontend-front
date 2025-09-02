@@ -1,82 +1,111 @@
 @import url('bootstrap/dist/css/bootstrap.min.css');
 
 body {
-  background-color: #f8f9fa;
+  background-color: #f5f5f5;
+  min-height: 100vh;
 }
 
 main {
   min-height: 70vh;
 }
 
-/* Navbar Brand - Migliorato per visibilità */
+/* Navbar classica */
+.navbar {
+  background-color: #2c3e50 !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 .navbar-brand {
   font-weight: bold;
   color: white !important;
-  font-size: 1.3rem;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  font-size: 1.4rem;
 }
 
 .navbar-brand:hover {
-  color: #f8f9fa !important;
+  color: #ecf0f1 !important;
 }
 
 .navbar-brand i {
-  color: #ffc107;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  color: #3498db;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-weight: 500;
+  padding: 8px 16px !important;
+  margin: 0 4px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+  color: white !important;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Badge notifiche perfettamente centrate e posizionate */
+.nav-link .badge {
+  font-size: 0.75rem !important;
+  top: 8.5px !important;
+  right: -5px !important;
+  min-width: 22px !important;
+  height: 22px !important;
+  border-radius: 50% !important;
+  font-weight: 600;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  line-height: 1 !important;
 }
 
 footer {
-  font-size: 1rem;
-  color: #555;
+  background-color: #34495e;
+  color: white;
 }
 
-/* Card Style */
-
-.card-travel {
-  transition: transform 0.2s, box-shadow 0.2s;
-  border-radius: 16px;
-  overflow: hidden;
+/* HomePage - Titolo classico */
+.homepage-bg h1 {
+  font-weight: 400;
+  color: #2c3e50;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
 }
 
-.card-travel:hover {
-  transform: translateY(-5px) scale(1.03);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+/* Card classiche */
+.card {
+  border: 1px solid #ddd !important;
+  border-radius: 8px !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
 }
 
 .card-img-top {
-  height: 220px;
+  height: 200px;
   object-fit: cover;
-  border-bottom: 1px solid #eee;
+  border-radius: 8px 8px 0 0 !important;
 }
 
-.card-title {
-  font-size: 1.3rem;
-  font-weight: 600;
-}
-
-.btn-outline-primary {
+.badge {
   font-weight: 500;
-  letter-spacing: 0.5px;
-}
-
-.card-info-custom .card-body {
-  padding-left: 0.5rem !important;
-  padding-right: 0.5rem !important;
-}
-
-@media (max-width: 991px) {
-  .card-info-custom {
-    max-width: 100%;
-  }
+  padding: 6px 12px;
+  border-radius: 4px;
 }
 
 /* Trip Detail Styles */
 .trip-detail-image-card {
-  border: none;
-  border-radius: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   height: 300px;
+  background: white;
 }
 
 .trip-detail-image {
@@ -95,11 +124,12 @@ footer {
 }
 
 .trip-detail-info-card {
-  border: none;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   height: auto;
   min-height: 300px;
+  background: white;
 }
 
 .trip-detail-title {
@@ -110,19 +140,20 @@ footer {
 }
 
 .trip-price-badge {
-  background: linear-gradient(135deg, #28a745, #20c997);
+  background: #27ae60;
   color: white;
   padding: 8px 16px;
-  border-radius: 20px;
+  border-radius: 4px;
   font-weight: 600;
   font-size: 1.1rem;
 }
 
 .trip-info-section {
   background-color: #f8f9fa;
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 15px;
   margin-bottom: 1rem;
+  border: 1px solid #e9ecef;
 }
 
 .info-section-title {
@@ -162,10 +193,11 @@ footer {
 }
 
 .trip-detail-description-card {
-  border: none;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   margin-top: 1.5rem;
+  background: white;
 }
 
 .trip-description-title {
@@ -174,7 +206,7 @@ footer {
   color: #2c3e50;
   margin-bottom: 1rem;
   padding-bottom: 8px;
-  border-bottom: 2px solid #007bff;
+  border-bottom: 2px solid #3498db;
 }
 
 .trip-description-content {
@@ -199,13 +231,23 @@ footer {
 }
 
 .border-dashed:hover {
-  border-color: #007bff !important;
+  border-color: #3498db !important;
   background-color: #e3f2fd;
 }
 
-/* Dropdown filtri semplice */
+.empty-state {
+  background: white;
+  padding: 3rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd;
+}
+
+/* Dropdown filtri */
 .dropdown-menu {
   min-width: 250px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Responsive Design */
