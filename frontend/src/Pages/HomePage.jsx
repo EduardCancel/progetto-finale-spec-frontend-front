@@ -20,8 +20,43 @@ function HomePage() {
 
     return (
         <div className="homepage-bg">
+            {/* Sezione Hero */}
+            <div className="hero-section">
+                <div className="container text-center py-5">
+                    <div className="row justify-content-center">
+                        <div className="col-lg-8">
+                            <h1 className="hero-title display-4 fw-bold mb-3">
+                                Esplora il Mondo con Wanderlust
+                            </h1>
+                            <p className="hero-subtitle lead mb-4 text-muted">
+                                Scopri destinazioni incredibili e crea ricordi indimenticabili.
+                                Il tuo prossimo viaggio ti aspetta.
+                            </p>
+                            <div className="hero-stats d-flex justify-content-center gap-4 flex-wrap">
+                                <div className="stat-item">
+                                    <i className="fas fa-map-marker-alt text-primary"></i>
+                                    <span className="ms-2">{filteredTravels.length} Destinazioni</span>
+                                </div>
+                                <div className="stat-item">
+                                    <i className="fas fa-users text-primary"></i>
+                                    <span className="ms-2">1000+ Viaggiatori Felici</span>
+                                </div>
+                                <div className="stat-item">
+                                    <i className="fas fa-star text-primary"></i>
+                                    <span className="ms-2">4.8 Stelle di Rating</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Sezione Destinazioni */}
             <div className="container py-5">
-                <h1 className="text-center mb-5">I Nostri Viaggi</h1>
+                <div className="text-center mb-5">
+                    <h2 className="section-title h3 fw-semibold">Le Nostre Destinazioni</h2>
+                    <p className="text-muted">Scegli la tua prossima avventura</p>
+                </div>
 
                 {filteredTravels.length === 0 ? (
                     <div className="text-center py-5">
@@ -35,22 +70,29 @@ function HomePage() {
                     <div className="row">
                         {filteredTravels.map((travel) => (
                             <div key={travel.id} className="col-lg-4 col-md-6 mb-4">
-                                <div className="card h-100 shadow-sm">
-                                    <img
-                                        src={travel.img || 'https://via.placeholder.com/400x200?text=Immagine+non+disponibile'}
-                                        className="card-img-top"
-                                        alt={travel.title}
-                                        style={{ height: '200px', objectFit: 'cover' }}
-                                    />
-                                    <div className="card-body d-flex flex-column">
-                                        <h5 className="card-title">{travel.title}</h5>
-                                        <span className="badge bg-primary mb-2 align-self-start">
-                                            {travel.category}
-                                        </span>
+                                <div className="card travel-card h-100 border-0">
+                                    <div className="card-img-wrapper">
+                                        <img
+                                            src={travel.img || 'https://via.placeholder.com/400x200?text=Immagine+non+disponibile'}
+                                            className="card-img-top"
+                                            alt={travel.title}
+                                        />
+                                        <div className="card-overlay">
+                                            <span className="badge category-badge">
+                                                {travel.category}
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div className="card-body d-flex flex-column p-4">
+                                        <h5 className="card-title fw-bold mb-3">{travel.title}</h5>
                                         <div className="d-flex justify-content-between align-items-center mt-auto">
-                                            <span className="h5 text-success mb-0">€{travel.price}</span>
-                                            <Link to={`/trips/${travel.id}`} className="btn btn-outline-primary">
-                                                Vedi Dettagli
+                                            <div className="price-section">
+                                                <span className="price-label text-muted small">Da</span>
+                                                <span className="price h5 text-success fw-bold ms-1">€{travel.price}</span>
+                                            </div>
+                                            <Link to={`/trips/${travel.id}`} className="btn btn-primary btn-explore">
+                                                <i className="fas fa-arrow-right me-1"></i>
+                                                Esplora
                                             </Link>
                                         </div>
                                     </div>

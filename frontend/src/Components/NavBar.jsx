@@ -31,7 +31,7 @@ function Navbar() {
                 {/* Brand */}
                 <Link className="navbar-brand fw-bold" to="/">
                     <i className="fas fa-plane me-2"></i>
-                    TravelApp
+                    Wanderlust
                 </Link>
 
                 {/* Toggle per mobile */}
