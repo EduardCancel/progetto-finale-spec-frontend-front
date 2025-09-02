@@ -59,7 +59,7 @@ function Navbar() {
                                 <i className="fas fa-balance-scale me-1"></i>
                                 Confronta
                                 {compareList.length > 0 && (
-                                    <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-warning text-dark">
+                                    <span className="position-absolute start-100 translate-middle badge rounded-pill bg-warning text-dark">
                                         {compareList.length}
                                     </span>
                                 )}

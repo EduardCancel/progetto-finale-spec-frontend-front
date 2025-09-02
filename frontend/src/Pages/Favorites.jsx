@@ -40,7 +40,15 @@ export default function Favorites() {
                             />
                             <div className="card-body d-flex flex-column">
                                 <h5 className="card-title">{travel.title}</h5>
-                                <span className="badge bg-primary mb-2 align-self-start">
+                                <span className={`badge category-badge mb-2 align-self-start ${travel.category?.toLowerCase() === 'avventura' ? 'badge-avventura' :
+                                        travel.category?.toLowerCase() === 'relax' ? 'badge-relax' :
+                                            travel.category?.toLowerCase() === 'cultura' ? 'badge-cultura' :
+                                                travel.category?.toLowerCase() === 'natura' ? 'badge-natura' :
+                                                    travel.category?.toLowerCase() === 'mare' ? 'badge-mare' :
+                                                        travel.category?.toLowerCase() === 'montagna' ? 'badge-montagna' :
+                                                            travel.category?.toLowerCase() === 'città' ? 'badge-citta' :
+                                                                'badge-default'
+                                    }`}>
                                     {travel.category}
                                 </span>
                                 <p className="card-text flex-grow-1">

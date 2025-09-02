@@ -78,7 +78,15 @@ function HomePage() {
                                             alt={travel.title}
                                         />
                                         <div className="card-overlay">
-                                            <span className="badge category-badge">
+                                            <span className={`badge category-badge ${travel.category?.toLowerCase() === 'avventura' ? 'badge-avventura' :
+                                                    travel.category?.toLowerCase() === 'relax' ? 'badge-relax' :
+                                                        travel.category?.toLowerCase() === 'cultura' ? 'badge-cultura' :
+                                                            travel.category?.toLowerCase() === 'natura' ? 'badge-natura' :
+                                                                travel.category?.toLowerCase() === 'mare' ? 'badge-mare' :
+                                                                    travel.category?.toLowerCase() === 'montagna' ? 'badge-montagna' :
+                                                                        travel.category?.toLowerCase() === 'città' ? 'badge-citta' :
+                                                                            'badge-default'
+                                                }`}>
                                                 {travel.category}
                                             </span>
                                         </div>
