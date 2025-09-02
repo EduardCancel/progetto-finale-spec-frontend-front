@@ -14,9 +14,26 @@ export const TravelProvider = ({ children }) => {
     const [selectedCategory, setSelectedCategory] = useState('');
     const [sortBy, setSortBy] = useState('');
 
-    // Stati per preferiti e comparazione
-    const [favorites, setFavorites] = useState([]);
-    const [compareList, setCompareList] = useState([]);
+    // Stati per preferiti e comparazione con localStorage
+    const [favorites, setFavorites] = useState(() => {
+        const saved = localStorage.getItem('travel-favorites');
+        return saved ? JSON.parse(saved) : [];
+    });
+
+    const [compareList, setCompareList] = useState(() => {
+        const saved = localStorage.getItem('travel-compare');
+        return saved ? JSON.parse(saved) : [];
+    });
+
+    // Salva preferiti in localStorage quando cambiano
+    useEffect(() => {
+        localStorage.setItem('travel-favorites', JSON.stringify(favorites));
+    }, [favorites]);
+
+    // Salva lista comparazione in localStorage quando cambia
+    useEffect(() => {
+        localStorage.setItem('travel-compare', JSON.stringify(compareList));
+    }, [compareList]);
 
     useEffect(() => {
         const fetchTravels = async () => {

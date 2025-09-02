@@ -1,25 +1,24 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./Pages/HomePage";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { TravelProvider } from "./GlobalContext/GlobalContext";
+import Navbar from "./Components/Navbar";
+import HomePage from "./Pages/HomePage";
+import TripDetail from "./Pages/TripDetail";
 import Compare from "./Pages/Compare";
 import Favorites from "./Pages/Favorites";
-import Layout from "./DefaultLayout/Layout";
-import { TravelProvider } from "./GlobalContext/GlobalContext";
 import "./App.css";
-import TripDetail from "./Pages/TripDetail";
 
 function App() {
   return (
     <TravelProvider>
-      <BrowserRouter>
-        <Layout>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/compare" element={<Compare />} />
-            <Route path="/favorites" element={<Favorites />} />
-            <Route path="/trips/:id" element={<TripDetail />} />
-          </Routes>
-        </Layout>
-      </BrowserRouter>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/trips/:id" element={<TripDetail />} />
+          <Route path="/compare" element={<Compare />} />
+          <Route path="/favorites" element={<Favorites />} />
+        </Routes>
+      </Router>
     </TravelProvider>
   );
 }
