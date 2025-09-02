@@ -92,7 +92,7 @@ export const TravelProvider = ({ children }) => {
         setFilteredTravels(filtered);
     }, [allTravels, searchText, selectedCategory, sortBy]);
 
-    // Funzioni SEMPLIFICATE per gestire i preferiti
+    // Funzioni per gestire i preferiti
     const toggleFavorite = (travel) => {
         const isAlreadyFavorite = favorites.some(fav => fav.id === travel.id);
 
@@ -107,20 +107,20 @@ export const TravelProvider = ({ children }) => {
         return favorites.some(fav => fav.id === travelId);
     };
 
-    // Funzioni SEMPLIFICATE per gestire la comparazione
+    // Funzioni per gestire la comparazione 
     const toggleCompare = (travel) => {
         const isAlreadyInCompare = compareList.some(item => item.id === travel.id);
 
         if (isAlreadyInCompare) {
             setCompareList(compareList.filter(item => item.id !== travel.id));
-        } else if (compareList.length < 2) {
+        } else if (compareList.length < 4) {
             setCompareList([...compareList, travel]);
         }
     };
 
     const canAddToCompare = (travelId) => {
         const isAlreadyInCompare = compareList.some(item => item.id === travelId);
-        return !isAlreadyInCompare && compareList.length < 2;
+        return !isAlreadyInCompare && compareList.length < 4;
     };
 
     const isInCompare = (travelId) => {

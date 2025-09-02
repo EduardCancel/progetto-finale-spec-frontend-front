@@ -10,7 +10,8 @@ export default function TripDetail() {
         isFavorite,
         toggleCompare,
         canAddToCompare,
-        isInCompare
+        isInCompare,
+        compareList
     } = useTravel();
 
     if (loading) return <p className="text-center mt-5">Caricamento...</p>;
@@ -94,9 +95,15 @@ export default function TripDetail() {
                                     disabled={!canAddToCompare(travel.id) && !isInCompare(travel.id)}
                                 >
                                     <i className="fas fa-balance-scale me-1"></i>
-                                    {isInCompare(travel.id) ? 'Rimuovi' : 'Confronta'}
+                                    {isInCompare(travel.id) ? 'Rimuovi' : compareList.length >= 4 ? 'Limite' : 'Confronta'}
                                 </button>
                             </div>
+
+                            {compareList.length >= 4 && !isInCompare(travel.id) && (
+                                <small className="text-muted d-block mt-2">
+                                    Puoi confrontare solo 4 viaggi alla volta
+                                </small>
+                            )}
                         </div>
                     </div>
                 </div>

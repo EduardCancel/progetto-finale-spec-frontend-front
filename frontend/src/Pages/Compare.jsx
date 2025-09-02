@@ -1,8 +1,8 @@
 import { useTravel } from '../GlobalContext/GlobalContext';
 import { Link } from 'react-router-dom';
 
-export default function Compare() {
-    const { compareList, removeFromCompare, clearCompare, allTravels } = useTravel();
+function Compare() {
+    const { compareList, removeFromCompare, clearCompare } = useTravel();
 
     // Se non ci sono viaggi da confrontare
     if (compareList.length === 0) {
@@ -13,7 +13,7 @@ export default function Compare() {
                     <i className="fas fa-balance-scale fa-4x text-muted mb-4"></i>
                     <h4 className="text-muted">Nessun viaggio selezionato</h4>
                     <p className="text-muted mb-4">
-                        Aggiungi fino a 2 viaggi per confrontarli
+                        Aggiungi fino a 4 viaggi per confrontarli
                     </p>
                     <Link to="/" className="btn btn-primary">
                         <i className="fas fa-home me-2"></i>
@@ -27,7 +27,7 @@ export default function Compare() {
     return (
         <div className="container py-5">
             <div className="d-flex justify-content-between align-items-center mb-4">
-                <h2>Confronta Viaggi ({compareList.length}/2)</h2>
+                <h2>Confronta Viaggi ({compareList.length}/4)</h2>
                 <button
                     className="btn btn-outline-danger"
                     onClick={clearCompare}
@@ -39,11 +39,11 @@ export default function Compare() {
 
             <div className="row">
                 {compareList.map((travel, index) => (
-                    <div key={travel.id} className="col-md-6 mb-4">
+                    <div key={travel.id} className="col-xl-3 col-lg-6 col-md-6 mb-4">
                         <div className="card h-100 shadow">
                             {/* Header card con rimozione */}
                             <div className="card-header d-flex justify-content-between align-items-center bg-primary text-white">
-                                <h5 className="mb-0">Viaggio {index + 1}</h5>
+                                <h6 className="mb-0">Viaggio {index + 1}</h6>
                                 <button
                                     className="btn btn-sm btn-outline-light"
                                     onClick={() => removeFromCompare(travel.id)}
@@ -57,45 +57,45 @@ export default function Compare() {
                                 src={travel.img || 'https://via.placeholder.com/400x200?text=Immagine+non+disponibile'}
                                 className="card-img-top"
                                 alt={travel.title}
-                                style={{ height: '200px', objectFit: 'cover' }}
+                                style={{ height: '150px', objectFit: 'cover' }}
                             />
 
                             {/* Contenuto */}
-                            <div className="card-body">
-                                <h5 className="card-title">{travel.title}</h5>
+                            <div className="card-body d-flex flex-column">
+                                <h6 className="card-title">{travel.title}</h6>
 
                                 {/* Prezzo */}
-                                <div className="mb-3">
-                                    <span className="h4 text-success">€{travel.price}</span>
+                                <div className="mb-2">
+                                    <span className="h6 text-success">€{travel.price}</span>
                                 </div>
 
                                 {/* Dettagli */}
-                                <div className="compare-details">
-                                    <div className="detail-row mb-2">
+                                <div className="compare-details flex-grow-1">
+                                    <div className="detail-row mb-1">
                                         <strong>Categoria:</strong>
-                                        <span className="badge bg-primary ms-2">{travel.category}</span>
+                                        <span className="badge bg-primary ms-2 small">{travel.category}</span>
                                     </div>
 
                                     {travel.brand && (
-                                        <div className="detail-row mb-2">
+                                        <div className="detail-row mb-1">
                                             <strong>Brand:</strong>
-                                            <span className="ms-2">{travel.brand}</span>
+                                            <span className="ms-2 small">{travel.brand}</span>
                                         </div>
                                     )}
 
                                     {travel.durationDays && (
                                         <div className="detail-row mb-2">
                                             <strong>Durata:</strong>
-                                            <span className="ms-2">{travel.durationDays} giorni</span>
+                                            <span className="ms-2 small">{travel.durationDays} giorni</span>
                                         </div>
                                     )}
 
-                                    <div className="detail-row mb-3">
+                                    <div className="detail-row mb-2">
                                         <strong>Descrizione:</strong>
-                                        <p className="mt-2 text-muted small">
-                                            {travel.description?.length > 150
-                                                ? `${travel.description.substring(0, 150)}...`
-                                                : travel.description || 'Descrizione non disponibile'
+                                        <p className="mt-1 text-muted small">
+                                            {travel.description?.length > 80
+                                                ? `${travel.description.substring(0, 80)}...`
+                                                : travel.description || 'Non disponibile'
                                             }
                                         </p>
                                     </div>
@@ -105,9 +105,9 @@ export default function Compare() {
                                 <div className="mt-auto">
                                     <Link
                                         to={`/trips/${travel.id}`}
-                                        className="btn btn-outline-primary w-100"
+                                        className="btn btn-outline-primary btn-sm w-100"
                                     >
-                                        Vedi Dettagli Completi
+                                        Dettagli
                                     </Link>
                                 </div>
                             </div>
@@ -115,16 +115,16 @@ export default function Compare() {
                     </div>
                 ))}
 
-                {/* Placeholder per secondo viaggio se manca */}
-                {compareList.length === 1 && (
-                    <div className="col-md-6 mb-4">
+                {/* Placeholder per viaggi mancanti */}
+                {compareList.length < 4 && (
+                    <div className="col-xl-3 col-lg-6 col-md-6 mb-4">
                         <div className="card h-100 border-dashed text-center d-flex align-items-center justify-content-center">
                             <div className="card-body">
-                                <i className="fas fa-plus-circle fa-3x text-muted mb-3"></i>
-                                <h5 className="text-muted">Aggiungi un secondo viaggio</h5>
-                                <p className="text-muted">Seleziona un altro viaggio dalla homepage o dai dettagli</p>
-                                <Link to="/" className="btn btn-primary">
-                                    Scegli Viaggio
+                                <i className="fas fa-plus-circle fa-2x text-muted mb-2"></i>
+                                <h6 className="text-muted">Aggiungi viaggio</h6>
+                                <p className="text-muted small">Puoi confrontare fino a 4 viaggi</p>
+                                <Link to="/" className="btn btn-primary btn-sm">
+                                    Scegli
                                 </Link>
                             </div>
                         </div>
@@ -134,3 +134,5 @@ export default function Compare() {
         </div>
     );
 }
+
+export default Compare;
