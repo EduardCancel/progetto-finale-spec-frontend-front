@@ -75,30 +75,39 @@ export const TravelProvider = ({ children }) => {
         setFilteredTravels(filtered);
     }, [allTravels, searchText, selectedCategory, sortBy]);
 
-    // Funzioni per gestire i preferiti
-    const addToFavorites = (travel) => {
-        if (!favorites.find(fav => fav.id === travel.id)) {
+    // Funzioni SEMPLIFICATE per gestire i preferiti
+    const toggleFavorite = (travel) => {
+        const isAlreadyFavorite = favorites.some(fav => fav.id === travel.id);
+
+        if (isAlreadyFavorite) {
+            setFavorites(favorites.filter(fav => fav.id !== travel.id));
+        } else {
             setFavorites([...favorites, travel]);
         }
-    };
-
-    const removeFromFavorites = (travelId) => {
-        setFavorites(favorites.filter(fav => fav.id !== travelId));
     };
 
     const isFavorite = (travelId) => {
         return favorites.some(fav => fav.id === travelId);
     };
 
-    // Funzioni per gestire la comparazione
-    const addToCompare = (travel) => {
-        if (compareList.length < 2 && !compareList.find(item => item.id === travel.id)) {
+    // Funzioni SEMPLIFICATE per gestire la comparazione
+    const toggleCompare = (travel) => {
+        const isAlreadyInCompare = compareList.some(item => item.id === travel.id);
+
+        if (isAlreadyInCompare) {
+            setCompareList(compareList.filter(item => item.id !== travel.id));
+        } else if (compareList.length < 2) {
             setCompareList([...compareList, travel]);
         }
     };
 
-    const removeFromCompare = (travelId) => {
-        setCompareList(compareList.filter(item => item.id !== travelId));
+    const canAddToCompare = (travelId) => {
+        const isAlreadyInCompare = compareList.some(item => item.id === travelId);
+        return !isAlreadyInCompare && compareList.length < 2;
+    };
+
+    const isInCompare = (travelId) => {
+        return compareList.some(item => item.id === travelId);
     };
 
     const clearCompare = () => {
@@ -119,16 +128,16 @@ export const TravelProvider = ({ children }) => {
         sortBy,
         setSortBy,
 
-        // Preferiti
+        // Preferiti SEMPLIFICATI
         favorites,
-        addToFavorites,
-        removeFromFavorites,
+        toggleFavorite,
         isFavorite,
 
-        // Comparazione
+        // Comparazione SEMPLIFICATA
         compareList,
-        addToCompare,
-        removeFromCompare,
+        toggleCompare,
+        canAddToCompare,
+        isInCompare,
         clearCompare
     };
 

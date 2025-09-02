@@ -3,7 +3,15 @@ import { useTravel } from "../GlobalContext/GlobalContext";
 
 export default function TripDetail() {
     const { id } = useParams();
-    const { allTravels, loading } = useTravel();
+    const {
+        allTravels,
+        loading,
+        toggleFavorite,
+        isFavorite,
+        toggleCompare,
+        canAddToCompare,
+        isInCompare
+    } = useTravel();
 
     if (loading) return <p className="text-center mt-5">Caricamento...</p>;
 
@@ -70,14 +78,23 @@ export default function TripDetail() {
                                 </div>
                             </div>
 
+                            {/* BOTTONI SEMPLIFICATI */}
                             <div className="trip-actions">
-                                <button className="btn btn-outline-danger me-2 mb-2">
+                                <button
+                                    className={`btn ${isFavorite(travel.id) ? 'btn-danger' : 'btn-outline-danger'} me-2 mb-2`}
+                                    onClick={() => toggleFavorite(travel)}
+                                >
                                     <i className="fas fa-heart me-1"></i>
-                                    Preferiti
+                                    {isFavorite(travel.id) ? 'Rimuovi' : 'Preferiti'}
                                 </button>
-                                <button className="btn btn-outline-info mb-2">
+
+                                <button
+                                    className={`btn ${isInCompare(travel.id) ? 'btn-info' : 'btn-outline-info'} mb-2`}
+                                    onClick={() => toggleCompare(travel)}
+                                    disabled={!canAddToCompare(travel.id) && !isInCompare(travel.id)}
+                                >
                                     <i className="fas fa-balance-scale me-1"></i>
-                                    Confronta
+                                    {isInCompare(travel.id) ? 'Rimuovi' : 'Confronta'}
                                 </button>
                             </div>
                         </div>
