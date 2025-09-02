@@ -12,16 +12,18 @@ function App() {
   return (
     <TravelProvider>
       <Router>
-        <Navbar />
-        <main>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/trips/:id" element={<TripDetail />} />
-            <Route path="/compare" element={<Compare />} />
-            <Route path="/favorites" element={<Favorites />} />
-          </Routes>
-        </main>
-        <Footer />
+        <div className="app-layout">
+          <Navbar />
+          <main>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/trips/:id" element={<TripDetail />} />
+              <Route path="/compare" element={<Compare />} />
+              <Route path="/favorites" element={<Favorites />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
       </Router>
     </TravelProvider>
   );
