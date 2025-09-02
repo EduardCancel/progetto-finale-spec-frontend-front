@@ -71,7 +71,7 @@ function Navbar() {
                                 <i className="fas fa-heart me-1"></i>
                                 Preferiti
                                 {favorites.length > 0 && (
-                                    <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                    <span className="position-absolute start-100 translate-middle badge rounded-pill bg-danger">
                                         {favorites.length}
                                     </span>
                                 )}

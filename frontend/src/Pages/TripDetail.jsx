@@ -26,7 +26,7 @@ export default function TripDetail() {
         <div className="container py-5">
             <div className="row">
                 {/* Card Immagine - Sinistra */}
-                <div className="col-lg-6 col-md-12 mb-4">
+                <div className="col-lg-7 col-md-12 mb-4">
                     <div className="card trip-detail-image-card">
                         {travel.img ? (
                             <img
@@ -44,45 +44,52 @@ export default function TripDetail() {
                 </div>
 
                 {/* Card Dettagli - Destra */}
-                <div className="col-lg-6 col-md-12 mb-4">
-                    <div className="card trip-detail-info-card">
+                <div className="col-lg-5 col-md-12 mb-4">
+                    <div className="card trip-detail-info-card shadow border-0">
                         <div className="card-body p-4">
-                            <h1 className="trip-detail-title">{travel.title}</h1>
+                            <h1 className="trip-detail-title mb-3 text-primary fs-3">{travel.title}</h1>
 
-                            <div className="d-flex align-items-center mb-3">
-                                <span className="badge bg-primary me-3">{travel.category}</span>
-                                <div className="trip-price-badge">
+                            <div className="mb-3">
+                                <span className="badge bg-primary fs-7 px-2 py-1 mb-2 d-block w-fit">
+                                    <i className="fas fa-tag me-1"></i>
+                                    {travel.category}
+                                </span>
+                                <div className="trip-price-badge fs-4 fw-bold text-success">
                                     €{travel.price}
+                                    <small className="text-muted fs-7 fw-normal ms-1">a persona</small>
                                 </div>
                             </div>
 
-                            <div className="trip-info-section">
-                                <h6 className="info-section-title">Dettagli del viaggio</h6>
+                            <div className="trip-info-section mb-4">
+                                <h6 className="info-section-title mb-3 text-secondary fs-6">
+                                    <i className="fas fa-info-circle me-1"></i>
+                                    Dettagli del viaggio
+                                </h6>
 
                                 {travel.brand && (
-                                    <div className="info-item">
+                                    <div className="info-item mb-2 p-2 bg-light rounded">
                                         <i className="fas fa-tag text-primary me-2"></i>
                                         <span className="info-text"><strong>Brand:</strong> {travel.brand}</span>
                                     </div>
                                 )}
 
                                 {travel.durationDays && (
-                                    <div className="info-item">
+                                    <div className="info-item mb-2 p-2 bg-light rounded">
                                         <i className="fas fa-calendar-days text-success me-2"></i>
                                         <span className="info-text"><strong>Durata:</strong> {travel.durationDays} giorni</span>
                                     </div>
                                 )}
 
-                                <div className="info-item">
+                                <div className="info-item mb-2 p-2 bg-light rounded">
                                     <i className="fas fa-map-marker-alt text-danger me-2"></i>
                                     <span className="info-text"><strong>Tipo:</strong> {travel.category}</span>
                                 </div>
                             </div>
 
-                            {/* BOTTONI SEMPLIFICATI */}
-                            <div className="trip-actions">
+
+                            <div className="trip-actions mt-3 d-flex gap-2 flex-wrap">
                                 <button
-                                    className={`btn ${isFavorite(travel.id) ? 'btn-danger' : 'btn-outline-danger'} me-2 mb-2`}
+                                    className={`btn ${isFavorite(travel.id) ? 'btn-danger' : 'btn-outline-danger'} btn-sm px-3 py-2 rounded-pill`}
                                     onClick={() => toggleFavorite(travel)}
                                 >
                                     <i className="fas fa-heart me-1"></i>
@@ -90,7 +97,7 @@ export default function TripDetail() {
                                 </button>
 
                                 <button
-                                    className={`btn ${isInCompare(travel.id) ? 'btn-info' : 'btn-outline-info'} mb-2`}
+                                    className={`btn ${isInCompare(travel.id) ? 'btn-info' : 'btn-outline-info'} btn-sm px-3 py-2 rounded-pill`}
                                     onClick={() => toggleCompare(travel)}
                                     disabled={!canAddToCompare(travel.id) && !isInCompare(travel.id)}
                                 >
@@ -100,9 +107,10 @@ export default function TripDetail() {
                             </div>
 
                             {compareList.length >= 4 && !isInCompare(travel.id) && (
-                                <small className="text-muted d-block mt-2">
-                                    Puoi confrontare solo 4 viaggi alla volta
-                                </small>
+                                <div className="alert alert-warning mt-3 py-2 d-flex align-items-center">
+                                    <i className="fas fa-exclamation-triangle me-2"></i>
+                                    <small>Puoi confrontare solo 4 viaggi alla volta</small>
+                                </div>
                             )}
                         </div>
                     </div>
@@ -112,9 +120,10 @@ export default function TripDetail() {
             {/* Card Descrizione - Sotto */}
             <div className="row">
                 <div className="col-12">
-                    <div className="card trip-detail-description-card">
-                        <div className="card-body">
-                            <h3 className="trip-description-title">
+                    <div className="card trip-detail-description-card shadow border-0">
+                        <div className="card-body p-4">
+                            <h3 className="trip-description-title mb-3 text-primary">
+                                <i className="fas fa-file-text me-2"></i>
                                 Descrizione del Viaggio
                             </h3>
                             <div className="trip-description-content">

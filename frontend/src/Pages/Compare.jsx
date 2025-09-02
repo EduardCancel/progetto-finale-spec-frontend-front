@@ -7,7 +7,7 @@ function Compare() {
     // Se non ci sono viaggi da confrontare
     if (compareList.length === 0) {
         return (
-            <div className="container py-5">
+            <div className="container py-5 min-height-page">
                 <div className="text-center mb-5">
                     <h2 className="section-title">Confronta Viaggi</h2>
                     <p className="text-muted">Seleziona fino a 4 viaggi per confrontarli</p>
