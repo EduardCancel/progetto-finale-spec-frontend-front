@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import { useTravel } from '../GlobalContext/GlobalContext';
 
 function Navbar() {
@@ -14,8 +15,15 @@ function Navbar() {
         compareList
     } = useTravel();
 
-    // Ottieni le categorie uniche per il filtro
-    const categories = [...new Set(allTravels.map(travel => travel.category))];
+    const [showFilters, setShowFilters] = useState(false);
+
+    // Modo per ottenere le categorie senza doppioni 
+    const categories = [];
+    allTravels.forEach(travel => {
+        if (!categories.includes(travel.category)) {
+            categories.push(travel.category);
+        }
+    });
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -26,7 +34,7 @@ function Navbar() {
                     TravelApp
                 </Link>
 
-                {/* Toggle button per mobile */}
+                {/* Toggle per mobile */}
                 <button
                     className="navbar-toggler"
                     type="button"
@@ -37,61 +45,8 @@ function Navbar() {
                 </button>
 
                 <div className="collapse navbar-collapse" id="navbarContent">
-                    {/* Ricerca e Filtri - Centro */}
-                    <div className="navbar-nav mx-auto d-flex flex-row align-items-center gap-3">
-                        {/* Barra di ricerca */}
-                        <div className="nav-item">
-                            <div className="input-group" style={{ minWidth: '200px' }}>
-                                <span className="input-group-text bg-white border-0">
-                                    <i className="fas fa-search text-muted"></i>
-                                </span>
-                                <input
-                                    type="text"
-                                    className="form-control border-0"
-                                    placeholder="Cerca viaggi..."
-                                    value={searchText}
-                                    onChange={(e) => setSearchText(e.target.value)}
-                                    style={{ fontSize: '0.9rem' }}
-                                />
-                            </div>
-                        </div>
-
-                        {/* Filtro categoria */}
-                        <div className="nav-item">
-                            <select
-                                className="form-select form-select-sm bg-white border-0"
-                                value={selectedCategory}
-                                onChange={(e) => setSelectedCategory(e.target.value)}
-                                style={{ minWidth: '150px', fontSize: '0.9rem' }}
-                            >
-                                <option value="">Tutte le categorie</option>
-                                {categories.map(category => (
-                                    <option key={category} value={category}>
-                                        {category}
-                                    </option>
-                                ))}
-                            </select>
-                        </div>
-
-                        {/* Ordinamento */}
-                        <div className="nav-item">
-                            <select
-                                className="form-select form-select-sm bg-white border-0"
-                                value={sortBy}
-                                onChange={(e) => setSortBy(e.target.value)}
-                                style={{ minWidth: '130px', fontSize: '0.9rem' }}
-                            >
-                                <option value="">Ordina per</option>
-                                <option value="title-asc">Titolo A-Z</option>
-                                <option value="title-desc">Titolo Z-A</option>
-                                <option value="category-asc">Categoria A-Z</option>
-                                <option value="category-desc">Categoria Z-A</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    {/* Menu di navigazione - Destra */}
-                    <ul className="navbar-nav ms-auto">
+                    {/* Menu principale - Centro */}
+                    <ul className="navbar-nav mx-auto">
                         <li className="nav-item">
                             <Link className="nav-link" to="/">
                                 <i className="fas fa-home me-1"></i>
@@ -123,6 +78,77 @@ function Navbar() {
                             </Link>
                         </li>
                     </ul>
+
+                    {/* Bottone Filtri - Destra */}
+                    <div className="dropdown">
+                        <button
+                            className="btn btn-outline-light dropdown-toggle"
+                            onClick={() => setShowFilters(!showFilters)}
+                            data-bs-toggle="dropdown"
+                        >
+                            <i className="fas fa-filter me-1"></i>
+                            Filtri
+                        </button>
+
+                        <div className={`dropdown-menu dropdown-menu-end p-3 ${showFilters ? 'show' : ''}`}>
+                            {/* Ricerca */}
+                            <div className="mb-3">
+                                <label className="form-label">Cerca:</label>
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    placeholder="Cerca viaggi..."
+                                    value={searchText}
+                                    onChange={(e) => setSearchText(e.target.value)}
+                                />
+                            </div>
+
+                            {/* Categoria */}
+                            <div className="mb-3">
+                                <label className="form-label">Categoria:</label>
+                                <select
+                                    className="form-select"
+                                    value={selectedCategory}
+                                    onChange={(e) => setSelectedCategory(e.target.value)}
+                                >
+                                    <option value="">Tutte</option>
+                                    {categories.map(category => (
+                                        <option key={category} value={category}>
+                                            {category}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
+
+                            {/* Ordinamento */}
+                            <div className="mb-3">
+                                <label className="form-label">Ordina:</label>
+                                <select
+                                    className="form-select"
+                                    value={sortBy}
+                                    onChange={(e) => setSortBy(e.target.value)}
+                                >
+                                    <option value="">Default</option>
+                                    <option value="title-asc">Titolo A-Z</option>
+                                    <option value="title-desc">Titolo Z-A</option>
+                                    <option value="category-asc">Categoria A-Z</option>
+                                    <option value="category-desc">Categoria Z-A</option>
+                                </select>
+                            </div>
+
+                            {/* Reset */}
+                            <button
+                                className="btn btn-sm btn-outline-secondary w-100"
+                                onClick={() => {
+                                    setSearchText('');
+                                    setSelectedCategory('');
+                                    setSortBy('');
+                                }}
+                            >
+                                Reset Filtri
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </nav>
