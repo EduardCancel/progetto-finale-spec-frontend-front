@@ -131,6 +131,10 @@ export const TravelProvider = ({ children }) => {
         setCompareList([]);
     };
 
+    const removeFromCompare = (travelId) => {
+        setCompareList(compareList.filter(item => item.id !== travelId));
+    };
+
     const value = {
         // Dati originali
         allTravels,
@@ -155,7 +159,8 @@ export const TravelProvider = ({ children }) => {
         toggleCompare,
         canAddToCompare,
         isInCompare,
-        clearCompare
+        clearCompare,
+        removeFromCompare
     };
 
     return (

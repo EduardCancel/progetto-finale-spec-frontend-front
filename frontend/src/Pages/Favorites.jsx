@@ -7,9 +7,9 @@ export default function Favorites() {
     // Se non ci sono preferiti
     if (favorites.length === 0) {
         return (
-            <div className="container py-5">
+            <div className="container py-5 min-height-page">
                 <h2 className="text-center mb-4">I Tuoi Preferiti</h2>
-                <div className="text-center py-5">
+                <div className="empty-state">
                     <i className="fas fa-heart fa-4x text-muted mb-4"></i>
                     <h4 className="text-muted">Nessun preferito salvato</h4>
                     <p className="text-muted mb-4">

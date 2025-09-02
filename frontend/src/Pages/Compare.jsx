@@ -36,16 +36,6 @@ function Compare() {
                 <p className="text-muted">Confronto di {compareList.length} su 4 viaggi massimi</p>
             </div>
 
-            <div className="d-flex justify-content-center mb-4">
-                <button
-                    className="btn btn-danger btn-clear-compare"
-                    onClick={clearCompare}
-                >
-                    <i className="fas fa-trash me-2"></i>
-                    Pulisci Confronto
-                </button>
-            </div>
-
             <div className="row">
                 {compareList.map((travel, index) => (
                     <div key={travel.id} className="col-lg-3 col-md-6 mb-4">
@@ -55,14 +45,20 @@ function Compare() {
                                 <div className="compare-number">#{index + 1}</div>
                                 <button
                                     className="btn-remove"
-                                    onClick={() => removeFromCompare(travel.id)}
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        e.stopPropagation();
+                                        console.log('Rimuovendo viaggio:', travel.id);
+                                        removeFromCompare(travel.id);
+                                    }}
                                     title="Rimuovi dal confronto"
+                                    type="button"
                                 >
                                     <i className="fas fa-times"></i>
                                 </button>
                             </div>
 
-                            {/* Immagine SENZA categoria */}
+                            {/* Immagine */}
                             <div className="card-img-wrapper">
                                 <img
                                     src={travel.img || 'https://via.placeholder.com/400x200?text=Immagine+non+disponibile'}
@@ -75,26 +71,26 @@ function Compare() {
                             <div className="card-body d-flex flex-column">
                                 <h5 className="card-title compare-title">{travel.title}</h5>
 
-                                {/* Categoria SOTTO il titolo */}
+                                {/* Categoria */}
                                 <span className={`badge category-badge ${travel.category?.toLowerCase() === 'avventura' ? 'badge-avventura' :
-                                        travel.category?.toLowerCase() === 'relax' ? 'badge-relax' :
-                                            travel.category?.toLowerCase() === 'cultura' ? 'badge-cultura' :
-                                                travel.category?.toLowerCase() === 'natura' ? 'badge-natura' :
-                                                    travel.category?.toLowerCase() === 'mare' ? 'badge-mare' :
-                                                        travel.category?.toLowerCase() === 'montagna' ? 'badge-montagna' :
-                                                            travel.category?.toLowerCase() === 'città' ? 'badge-citta' :
-                                                                'badge-default'
+                                    travel.category?.toLowerCase() === 'relax' ? 'badge-relax' :
+                                        travel.category?.toLowerCase() === 'cultura' ? 'badge-cultura' :
+                                            travel.category?.toLowerCase() === 'natura' ? 'badge-natura' :
+                                                travel.category?.toLowerCase() === 'mare' ? 'badge-mare' :
+                                                    travel.category?.toLowerCase() === 'montagna' ? 'badge-montagna' :
+                                                        travel.category?.toLowerCase() === 'città' ? 'badge-citta' :
+                                                            'badge-default'
                                     }`}>
                                     {travel.category}
                                 </span>
 
-                                {/* Prezzo prominente */}
+                                {/* Prezzo */}
                                 <div className="price-section mb-3">
                                     <span className="price-label">Da</span>
                                     <span className="price">€{travel.price}</span>
                                 </div>
 
-                                {/* Dettagli confronto */}
+                                {/* Dettagli */}
                                 <div className="compare-details flex-grow-1">
                                     {travel.brand && (
                                         <div className="detail-item">
@@ -139,24 +135,31 @@ function Compare() {
                     </div>
                 ))}
 
-                {/* Placeholder per viaggi mancanti */}
-                {[...Array(4 - compareList.length)].map((_, index) => (
-                    <div key={`placeholder-${index}`} className="col-lg-3 col-md-6 mb-4">
-                        <div className="card border-dashed h-100 d-flex align-items-center justify-content-center">
-                            <div className="text-center p-4">
-                                <i className="fas fa-plus-circle fa-3x text-muted mb-3"></i>
-                                <h6 className="text-muted mb-2">Slot Libero</h6>
-                                <p className="text-muted small mb-3">
-                                    Aggiungi un altro viaggio per confrontarlo
-                                </p>
-                                <Link to="/" className="btn btn-outline-primary btn-sm">
-                                    <i className="fas fa-search me-1"></i>
-                                    Scegli Viaggio
-                                </Link>
-                            </div>
+                {/* Slot vuoti semplici */}
+                {compareList.length < 4 && (
+                    <div className="col-lg-3 col-md-6 mb-4">
+                        <div className="card border-dashed h-100 text-center p-4">
+                            <i className="fas fa-plus-circle fa-3x text-muted mb-3"></i>
+                            <h6 className="text-muted">Aggiungi viaggio</h6>
+                            <p className="text-muted small mb-3">Puoi confrontare fino a 4 viaggi</p>
+                            <Link to="/" className="btn btn-outline-primary btn-sm">
+                                Scegli
+                            </Link>
                         </div>
                     </div>
-                ))}
+                )}
+            </div>
+
+            {/* Bottone Pulisci Confronto */}
+            <div className="text-center mt-4">
+                <button
+                    className="btn btn-danger btn-clear-compare"
+                    onClick={clearCompare}
+                    type="button"
+                >
+                    <i className="fas fa-trash me-2"></i>
+                    Pulisci Confronto
+                </button>
             </div>
         </div>
     );
