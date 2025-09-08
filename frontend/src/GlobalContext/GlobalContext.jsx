@@ -5,16 +5,16 @@ const TravelContext = createContext();
 export const useTravel = () => useContext(TravelContext);
 
 export const TravelProvider = ({ children }) => {
-    const [allTravels, setAllTravels] = useState([]);
-    const [filteredTravels, setFilteredTravels] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [allTravels, setAllTravels] = useState([]); /* Contiene tutti i dati originali dalla chiamata del server api, inizialmente è un array vuoto  */
+    const [filteredTravels, setFilteredTravels] = useState([]); /* Contiene i viaggi risultanti dalla applicazione del filtro di ricerca */
+    const [loading, setLoading] = useState(true); /* Stato che controlla che cosa mostrare all'utente  */
 
     // Nuovi stati per ricerca e filtri
-    const [searchText, setSearchText] = useState('');
-    const [selectedCategory, setSelectedCategory] = useState('');
-    const [sortBy, setSortBy] = useState('');
+    const [searchText, setSearchText] = useState(''); /* E lo stato che memorizza il testo di ricerca dell'utente, inizialmente è una stringa vuota */
+    const [selectedCategory, setSelectedCategory] = useState(''); /* E lo stato che memorizza le categorie scelte dall'utente  */
+    const [sortBy, setSortBy] = useState(''); /* Memorizza il criterio di ordinamento del cliente usando il metodo del Sort */
 
-    // Stati per preferiti e comparazione con localStorage
+    // Stato per poter utilizzare il localstorage del browser per mantenere salvati anche dopo la chiusura i viaggi preferiti o comparati e trovarli salvati succesivamente
     const [favorites, setFavorites] = useState(() => {
         const saved = localStorage.getItem('travel-favorites');
         return saved ? JSON.parse(saved) : [];
@@ -149,12 +149,12 @@ export const TravelProvider = ({ children }) => {
         sortBy,
         setSortBy,
 
-        // Preferiti SEMPLIFICATI
+        // Preferiti 
         favorites,
         toggleFavorite,
         isFavorite,
 
-        // Comparazione SEMPLIFICATA
+        // Comparazione 
         compareList,
         toggleCompare,
         canAddToCompare,

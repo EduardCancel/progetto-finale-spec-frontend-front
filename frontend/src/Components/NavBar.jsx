@@ -17,7 +17,9 @@ function Navbar() {
 
     const [showFilters, setShowFilters] = useState(false);
 
-    // Modo per ottenere le categorie senza doppioni 
+    /*  Creo un array vuoto dove salvare i dati del forEach, controllo con tramite la condizione di includes se la categoria e già presente, se non lo è
+        la aggiungo all'array tramite il push, mi serve per evitare i doppioni
+    */
     const categories = [];
     allTravels.forEach(travel => {
         if (!categories.includes(travel.category)) {
