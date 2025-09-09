@@ -1,8 +1,9 @@
-import { useState, useEffect, useContext, createContext } from 'react';
+import { useState, useEffect, useContext, createContext, useMemo } from 'react';
 
 const TravelContext = createContext();
 
-export const useTravel = () => useContext(TravelContext);
+// Hook personalizzato per usare il context
+const useTravel = () => useContext(TravelContext);
 
 export const TravelProvider = ({ children }) => {
 
@@ -11,9 +12,6 @@ export const TravelProvider = ({ children }) => {
 
     // Stato che contiene tutti i viaggi ricevuti dal server, inizialmente array vuoto fino al caricamento
     const [allTravels, setAllTravels] = useState([]);
-
-    // Stato che contiene i viaggi dopo aver applicato filtri di ricerca, categoria e ordinamento
-    const [filteredTravels, setFilteredTravels] = useState([]);
 
     // Stato booleano per controllare quando mostrare il loading spinner all'utente
     const [loading, setLoading] = useState(true);
@@ -124,9 +122,6 @@ export const TravelProvider = ({ children }) => {
                 // Salvo tutti i viaggi completi nello stato principale
                 setAllTravels(completeTravels);
 
-                // Inizializzo anche i viaggi filtrati con tutti i viaggi (nessun filtro attivo)
-                setFilteredTravels(completeTravels);
-
             } catch (error) {
                 // Se qualcosa va storto, stampo l'errore in console per debug
                 console.error('Errore nel caricamento viaggi:', error);
@@ -141,53 +136,77 @@ export const TravelProvider = ({ children }) => {
     }, []); // Array vuoto = eseguo solo una volta al mount del componente
 
 
-    // FILTRI E ORDINAMENTO
+    // FUNZIONE PER LA SELEZIONE DELLA CATEGORIA DALLA DROPDOWN (fornisce la lista per popolare la select dell'interfaccia)
+    const categories = useMemo(() => {
+        // Set rimuove i duplicati, ma ciò che restituisce non è un array (è un oggetto Set: { "mare", "montagna" }), quindi lo spread lo converte automaticamente in array)
+        const uniqueCategories = [...new Set(allTravels.map(travel => travel.category))];
+        // mi ritorna le categorie in ordine alfabetico
+        return uniqueCategories.sort(); // stringhe
+    }, [allTravels]);
 
+    // FUNZIONE PER OTTENERE I VIAGGI FILTRATI SOLO PER TITOLO
+    const searchFilteredTravels = useMemo(() => {
+        // se non c'è testo di ricerca, mostro tutti i viaggi
+        if (!debouncedSearchText) {
+            return allTravels;
+        }
+        // filtro solo per il titolo del viaggio
+        return allTravels.filter(travel =>
+            travel.title.toLowerCase().includes(debouncedSearchText.toLowerCase())
+        );
+    }, [allTravels, debouncedSearchText]);
 
-    // Sistema di filtri combinati che si riattiva quando cambiano i criteri di ricerca
-    useEffect(() => {
-        // Parto sempre da una copia completa dei dati originali per non perdere nulla
-        // Lo spread operator [...allTravels] crea una nuova array senza modificare l'originale
-        let filtered = [...allTravels];
+    // FUNZIONE PER OTTENERE I VIAGGI FILTRATI SOLO PER CATEGORIA
+    const categoryFilteredTravels = useMemo(() => {
+        // se non c'è categoria selezionata, mostro tutti i viaggi
+        if (!selectedCategory) {
+            return allTravels;
+        }
+        // filtro solo per la categoria selezionata
+        return allTravels.filter(travel => travel.category === selectedCategory);
+    }, [allTravels, selectedCategory]);
 
-        // PRIMO FILTRO: ricerca testuale nei titoli e descrizioni
-        // Controllo se l'utente ha digitato qualcosa (stringa non vuota)
+    // FUNZIONE PER L'ORDINE ALFABETICO DEI VIAGGI
+    const alphabeticallySortedTravels = useMemo(() => {
+        // se non c'è ordinamento selezionato, mostro tutti i viaggi senza ordinamento
+        if (!sortBy) {
+            return allTravels;
+        }
+        // applico solo l'ordinamento alfabetico
+        if (sortBy === "title-asc") {
+            return [...allTravels].sort((a, b) => a.title.localeCompare(b.title));
+        } else if (sortBy === "title-desc") {
+            return [...allTravels].sort((a, b) => b.title.localeCompare(a.title));
+        }
+        // se sortBy non corrisponde a nessuna opzione, restituisco tutti i viaggi
+        return allTravels;
+    }, [allTravels, sortBy]);
+
+    // FUNZIONE COMBINATA PER LA HOMEPAGE (filtri + ordinamento insieme)
+    const finalTravels = useMemo(() => {
+        let result = allTravels;
+
+        // Applico filtro ricerca se presente
         if (debouncedSearchText) {
-            // filter() restituisce un nuovo array con solo gli elementi che passano il test
-            filtered = filtered.filter(travel =>
-                // Cerco il testo sia nel titolo che nella descrizione (case-insensitive)
-                // toLowerCase() rende la ricerca insensibile a maiuscole/minuscole
+            result = result.filter(travel =>
                 travel.title.toLowerCase().includes(debouncedSearchText.toLowerCase())
             );
         }
 
-        // SECONDO FILTRO: categoria specifica selezionata dall'utente
+        // Applico filtro categoria se presente
         if (selectedCategory) {
-            // Tengo solo i viaggi che appartengono esattamente alla categoria scelta
-            // === è confronto stretto: deve essere identico, non simile
-            filtered = filtered.filter(travel => travel.category === selectedCategory);
+            result = result.filter(travel => travel.category === selectedCategory);
         }
 
-        // ORDINAMENTO: applico se l'utente ha scelto un criterio di ordinamento
-        if (sortBy) {
-            // sort() modifica l'array ordinandolo secondo la funzione di confronto fornita
-            filtered.sort((a, b) => {
-                // localeCompare() gestisce correttamente caratteri accentati e regole linguistiche
-                // Ritorna numero negativo se a viene prima di b, positivo se dopo, 0 se uguali
-                if (sortBy === 'title-asc') return a.title.localeCompare(b.title);     // Alfabetico A-Z
-                if (sortBy === 'title-desc') return b.title.localeCompare(a.title);   // Alfabetico Z-A
-                if (sortBy === 'category-asc') return a.category.localeCompare(b.category);   // Categorie A-Z
-                if (sortBy === 'category-desc') return b.category.localeCompare(a.category); // Categorie Z-A
-                // Se sortBy non corrisponde a nessuna opzione, mantengo ordine esistente
-                return 0;
-            });
+        // Applico ordinamento se presente
+        if (sortBy === "title-asc") {
+            result = [...result].sort((a, b) => a.title.localeCompare(b.title));
+        } else if (sortBy === "title-desc") {
+            result = [...result].sort((a, b) => b.title.localeCompare(a.title));
         }
 
-        // Aggiorno lo stato con il risultato finale di tutti i filtri applicati
-        // React rileverà questo cambiamento e aggiornerà automaticamente l'interfaccia
-        setFilteredTravels(filtered);
+        return result;
     }, [allTravels, debouncedSearchText, selectedCategory, sortBy]);
-    // Questo useEffect si riattiva quando cambia qualsiasi di questi valori
 
 
     // FUNZIONI GESTIONE PREFERITI
@@ -268,13 +287,16 @@ export const TravelProvider = ({ children }) => {
 
     // PROVIDER VALUE - ESPORTAZIONE
 
-
     // Oggetto con tutti i valori e funzioni che voglio rendere disponibili ai componenti figli
     const value = {
         // Dati principali
-        allTravels,           // Tutti i viaggi dal server
-        filteredTravels,      // Viaggi dopo filtri
-        loading,              // Stato caricamento
+        allTravels,                    // Tutti i viaggi dal server
+        searchFilteredTravels,         // Viaggi filtrati solo per ricerca titolo
+        categoryFilteredTravels,       // Viaggi filtrati solo per categoria
+        alphabeticallySortedTravels,   // Viaggi ordinati solo alfabeticamente
+        finalTravels,                  // Viaggi con tutti i filtri combinati (per HomePage)
+        loading,                       // Stato caricamento
+        categories,                    // Categorie uniche derivate dai viaggi
 
         // Controlli ricerca e filtri
         searchText,           // Testo attuale nella barra ricerca
@@ -304,3 +326,5 @@ export const TravelProvider = ({ children }) => {
         </TravelContext.Provider>
     );
 };
+
+export { useTravel };

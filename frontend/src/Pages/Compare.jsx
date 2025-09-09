@@ -47,7 +47,6 @@ function Compare() {
                                     className="btn-remove"
                                     onClick={(e) => {
                                         e.preventDefault();
-                                        e.stopPropagation();
                                         console.log('Rimuovendo viaggio:', travel.id);
                                         removeFromCompare(travel.id);
                                     }}

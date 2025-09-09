@@ -2,7 +2,7 @@ import { useTravel } from '../GlobalContext/GlobalContext';
 import { Link } from 'react-router-dom';
 
 function HomePage() {
-    const { filteredTravels, loading } = useTravel();
+    const { finalTravels, loading } = useTravel();
 
     if (loading) {
         return (
@@ -35,7 +35,7 @@ function HomePage() {
                             <div className="hero-stats d-flex justify-content-center gap-4 flex-wrap">
                                 <div className="stat-item">
                                     <i className="fas fa-map-marker-alt text-primary"></i>
-                                    <span className="ms-2">{filteredTravels.length} Destinazioni</span>
+                                    <span className="ms-2">{finalTravels.length} Destinazioni</span>
                                 </div>
                                 <div className="stat-item">
                                     <i className="fas fa-users text-primary"></i>
@@ -58,7 +58,7 @@ function HomePage() {
                     <p className="text-muted">Scegli la tua prossima avventura</p>
                 </div>
 
-                {filteredTravels.length === 0 ? (
+                {finalTravels.length === 0 ? (
                     <div className="text-center py-5">
                         <div className="empty-state">
                             <i className="fas fa-search fa-4x text-muted mb-3"></i>
@@ -68,7 +68,7 @@ function HomePage() {
                     </div>
                 ) : (
                     <div className="row">
-                        {filteredTravels.map((travel) => (
+                        {finalTravels.map((travel) => (
                             <div key={travel.id} className="col-lg-4 col-md-6 mb-4">
                                 <div className="card travel-card h-100 border-0">
                                     <div className="card-img-wrapper">
@@ -79,13 +79,13 @@ function HomePage() {
                                         />
                                         <div className="card-overlay">
                                             <span className={`badge category-badge ${travel.category?.toLowerCase() === 'avventura' ? 'badge-avventura' :
-                                                    travel.category?.toLowerCase() === 'relax' ? 'badge-relax' :
-                                                        travel.category?.toLowerCase() === 'cultura' ? 'badge-cultura' :
-                                                            travel.category?.toLowerCase() === 'natura' ? 'badge-natura' :
-                                                                travel.category?.toLowerCase() === 'mare' ? 'badge-mare' :
-                                                                    travel.category?.toLowerCase() === 'montagna' ? 'badge-montagna' :
-                                                                        travel.category?.toLowerCase() === 'città' ? 'badge-citta' :
-                                                                            'badge-default'
+                                                travel.category?.toLowerCase() === 'relax' ? 'badge-relax' :
+                                                    travel.category?.toLowerCase() === 'cultura' ? 'badge-cultura' :
+                                                        travel.category?.toLowerCase() === 'natura' ? 'badge-natura' :
+                                                            travel.category?.toLowerCase() === 'mare' ? 'badge-mare' :
+                                                                travel.category?.toLowerCase() === 'montagna' ? 'badge-montagna' :
+                                                                    travel.category?.toLowerCase() === 'città' ? 'badge-citta' :
+                                                                        'badge-default'
                                                 }`}>
                                                 {travel.category}
                                             </span>
