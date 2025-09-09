@@ -1,3 +1,4 @@
+
 import { useState, useEffect, useContext, createContext, useMemo } from 'react';
 
 const TravelContext = createContext();
@@ -167,7 +168,7 @@ export const TravelProvider = ({ children }) => {
     }, [allTravels, selectedCategory]);
 
     // FUNZIONE PER L'ORDINE ALFABETICO DEI VIAGGI
-    const alphabeticallySortedTravels = useMemo(() => {
+    const sortedTravels = useMemo(() => {
         // se non c'è ordinamento selezionato, mostro tutti i viaggi senza ordinamento
         if (!sortBy) {
             return allTravels;
@@ -181,32 +182,6 @@ export const TravelProvider = ({ children }) => {
         // se sortBy non corrisponde a nessuna opzione, restituisco tutti i viaggi
         return allTravels;
     }, [allTravels, sortBy]);
-
-    // FUNZIONE COMBINATA PER LA HOMEPAGE (filtri + ordinamento insieme)
-    const finalTravels = useMemo(() => {
-        let result = allTravels;
-
-        // Applico filtro ricerca se presente
-        if (debouncedSearchText) {
-            result = result.filter(travel =>
-                travel.title.toLowerCase().includes(debouncedSearchText.toLowerCase())
-            );
-        }
-
-        // Applico filtro categoria se presente
-        if (selectedCategory) {
-            result = result.filter(travel => travel.category === selectedCategory);
-        }
-
-        // Applico ordinamento se presente
-        if (sortBy === "title-asc") {
-            result = [...result].sort((a, b) => a.title.localeCompare(b.title));
-        } else if (sortBy === "title-desc") {
-            result = [...result].sort((a, b) => b.title.localeCompare(a.title));
-        }
-
-        return result;
-    }, [allTravels, debouncedSearchText, selectedCategory, sortBy]);
 
 
     // FUNZIONI GESTIONE PREFERITI
@@ -293,8 +268,7 @@ export const TravelProvider = ({ children }) => {
         allTravels,                    // Tutti i viaggi dal server
         searchFilteredTravels,         // Viaggi filtrati solo per ricerca titolo
         categoryFilteredTravels,       // Viaggi filtrati solo per categoria
-        alphabeticallySortedTravels,   // Viaggi ordinati solo alfabeticamente
-        finalTravels,                  // Viaggi con tutti i filtri combinati (per HomePage)
+        sortedTravels,                 // Viaggi ordinati solo alfabeticamente
         loading,                       // Stato caricamento
         categories,                    // Categorie uniche derivate dai viaggi
 

@@ -1,31 +1,11 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
 import { useTravel } from '../GlobalContext/GlobalContext';
 
 function Navbar() {
     const {
-        searchText,
-        setSearchText,
-        selectedCategory,
-        setSelectedCategory,
-        sortBy,
-        setSortBy,
-        allTravels,
         favorites,
         compareList
     } = useTravel();
-
-    const [showFilters, setShowFilters] = useState(false);
-
-    /*  Creo un array vuoto dove salvare i dati del forEach, controllo con tramite la condizione di includes se la categoria e già presente, se non lo è
-        la aggiungo all'array tramite il push, mi serve per evitare i doppioni
-    */
-    const categories = [];
-    allTravels.forEach(travel => {
-        if (!categories.includes(travel.category)) {
-            categories.push(travel.category);
-        }
-    });
 
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -79,78 +59,15 @@ function Navbar() {
                                 )}
                             </Link>
                         </li>
+
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/search">
+                                <i className="fas fa-search me-1"></i>
+                                Cerca Viaggi
+                            </Link>
+                        </li>
+
                     </ul>
-
-                    {/* Bottone Filtri - Destra */}
-                    <div className="dropdown">
-                        <button
-                            className="btn btn-outline-light dropdown-toggle"
-                            onClick={() => setShowFilters(!showFilters)}
-                            data-bs-toggle="dropdown"
-                        >
-                            <i className="fas fa-filter me-1"></i>
-                            Filtri
-                        </button>
-
-                        <div className={`dropdown-menu dropdown-menu-end p-3 ${showFilters ? 'show' : ''}`}>
-                            {/* Ricerca */}
-                            <div className="mb-3">
-                                <label className="form-label">Cerca:</label>
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    placeholder="Cerca viaggi..."
-                                    value={searchText}
-                                    onChange={(e) => setSearchText(e.target.value)}
-                                />
-                            </div>
-
-                            {/* Categoria */}
-                            <div className="mb-3">
-                                <label className="form-label">Categoria:</label>
-                                <select
-                                    className="form-select"
-                                    value={selectedCategory}
-                                    onChange={(e) => setSelectedCategory(e.target.value)}
-                                >
-                                    <option value="">Tutte</option>
-                                    {categories.map(category => (
-                                        <option key={category} value={category}>
-                                            {category}
-                                        </option>
-                                    ))}
-                                </select>
-                            </div>
-
-                            {/* Ordinamento */}
-                            <div className="mb-3">
-                                <label className="form-label">Ordina:</label>
-                                <select
-                                    className="form-select"
-                                    value={sortBy}
-                                    onChange={(e) => setSortBy(e.target.value)}
-                                >
-                                    <option value="">Default</option>
-                                    <option value="title-asc">Titolo A-Z</option>
-                                    <option value="title-desc">Titolo Z-A</option>
-                                    <option value="category-asc">Categoria A-Z</option>
-                                    <option value="category-desc">Categoria Z-A</option>
-                                </select>
-                            </div>
-
-                            {/* Reset */}
-                            <button
-                                className="btn btn-sm btn-outline-secondary w-100"
-                                onClick={() => {
-                                    setSearchText('');
-                                    setSelectedCategory('');
-                                    setSortBy('');
-                                }}
-                            >
-                                Reset Filtri
-                            </button>
-                        </div>
-                    </div>
                 </div>
             </div>
         </nav>

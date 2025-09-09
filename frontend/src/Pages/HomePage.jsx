@@ -1,8 +1,12 @@
+
 import { useTravel } from '../GlobalContext/GlobalContext';
 import { Link } from 'react-router-dom';
 
 function HomePage() {
-    const { finalTravels, loading } = useTravel();
+    const {
+        allTravels,
+        loading,
+    } = useTravel();
 
     if (loading) {
         return (
@@ -32,10 +36,10 @@ function HomePage() {
                                 Scopri destinazioni incredibili e crea ricordi indimenticabili.
                                 Il tuo prossimo viaggio ti aspetta.
                             </p>
-                            <div className="hero-stats d-flex justify-content-center gap-4 flex-wrap">
+                            <div className="hero-stats d-flex justify-content-center gap-4 flex-wrap mb-4">
                                 <div className="stat-item">
                                     <i className="fas fa-map-marker-alt text-primary"></i>
-                                    <span className="ms-2">{finalTravels.length} Destinazioni</span>
+                                    <span className="ms-2">{allTravels.length} Destinazioni</span>
                                 </div>
                                 <div className="stat-item">
                                     <i className="fas fa-users text-primary"></i>
@@ -58,7 +62,7 @@ function HomePage() {
                     <p className="text-muted">Scegli la tua prossima avventura</p>
                 </div>
 
-                {finalTravels.length === 0 ? (
+                {allTravels.length === 0 ? (
                     <div className="text-center py-5">
                         <div className="empty-state">
                             <i className="fas fa-search fa-4x text-muted mb-3"></i>
@@ -68,7 +72,7 @@ function HomePage() {
                     </div>
                 ) : (
                     <div className="row">
-                        {finalTravels.map((travel) => (
+                        {allTravels.map((travel) => (
                             <div key={travel.id} className="col-lg-4 col-md-6 mb-4">
                                 <div className="card travel-card h-100 border-0">
                                     <div className="card-img-wrapper">
