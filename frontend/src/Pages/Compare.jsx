@@ -92,13 +92,6 @@ function Compare() {
 
                                 {/* Dettagli */}
                                 <div className="compare-details flex-grow-1">
-                                    {travel.brand && (
-                                        <div className="detail-item">
-                                            <i className="fas fa-tag text-primary me-2"></i>
-                                            <strong>Brand:</strong>
-                                            <span className="ms-1">{travel.brand}</span>
-                                        </div>
-                                    )}
 
                                     {travel.durationDays && (
                                         <div className="detail-item">
