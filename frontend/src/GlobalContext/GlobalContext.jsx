@@ -1,5 +1,5 @@
 
-import { useState, useEffect, useContext, createContext, useMemo } from 'react';
+import { useState, useEffect, useContext, createContext, useMemo, useCallback } from 'react';
 
 const TravelContext = createContext();
 
@@ -187,7 +187,7 @@ export const TravelProvider = ({ children }) => {
     // FUNZIONI GESTIONE PREFERITI
 
     // GESTIONE PREFERITI - aggiunta e rimozione toggle
-    const toggleFavorite = (travel) => {
+    const toggleFavorite = useCallback((travel) => {
         // some() verifica se almeno un elemento dell'array soddisfa la condizione
         // Controllo se questo viaggio è già presente nei miei preferiti
         const isAlreadyFavorite = favorites.some(fav => fav.id === travel.id);
@@ -201,20 +201,20 @@ export const TravelProvider = ({ children }) => {
             // [...favorites, travel] crea nuovo array con tutto quello che c'era + il nuovo elemento
             setFavorites([...favorites, travel]);
         }
-    };
+    }, [favorites]); // Dipende da favorites - si ricrea solo quando favorites cambia
 
     // Funzione di utilità per controllare se un viaggio è nei preferiti
-    const isFavorite = (travelId) => {
+    const isFavorite = useCallback((travelId) => {
         // Restituisce true/false cercando se l'ID esiste nell'array favorites
         // Uso questa funzione per mostrare icone diverse nell'interfaccia (cuore pieno/vuoto)
         return favorites.some(fav => fav.id === travelId);
-    };
+    }, [favorites]); // Dipende da favorites
 
 
     // FUNZIONI GESTIONE CONFRONTO
 
     // GESTIONE CONFRONTO - aggiunta e rimozione con limite massimo
-    const toggleCompare = (travel) => {
+    const toggleCompare = useCallback((travel) => {
         // Verifico se questo viaggio è già nella lista di confronto
         const isAlreadyInCompare = compareList.some(item => item.id === travel.id);
 
@@ -227,37 +227,37 @@ export const TravelProvider = ({ children }) => {
             setCompareList([...compareList, travel]);
         }
         // Se ho già 4 viaggi, non succede nulla (nessun else finale)
-    };
+    }, [compareList]); // Dipende da compareList
 
     // Controllo se posso aggiungere un viaggio al confronto
-    const canAddToCompare = (travelId) => {
+    const canAddToCompare = useCallback((travelId) => {
         // Verifico prima se è già presente
         const isAlreadyInCompare = compareList.some(item => item.id === travelId);
         // Restituisco true solo se: NON è già presente E ho ancora spazio (meno di 4)
         // Uso questa funzione per abilitare/disabilitare pulsanti nell'interfaccia
         return !isAlreadyInCompare && compareList.length < 4;
-    };
+    }, [compareList]); // Dipende da compareList
 
     // Controllo se un viaggio specifico è nella lista di confronto
-    const isInCompare = (travelId) => {
+    const isInCompare = useCallback((travelId) => {
         // Semplice verifica di presenza nell'array
         // Uso questa funzione per mostrare stati diversi dei pulsanti (aggiunto/non aggiunto)
         return compareList.some(item => item.id === travelId);
-    };
+    }, [compareList]); // Dipende da compareList
 
     // Svuoto completamente la lista di confronto
-    const clearCompare = () => {
+    const clearCompare = useCallback(() => {
         // Imposto array vuoto per rimuovere tutti i viaggi dal confronto
         // Il salvataggio nel localStorage avviene automaticamente tramite useEffect
         setCompareList([]);
-    };
+    }, []); // Non dipende da nulla, sempre la stessa funzione
 
     // Rimuovo un singolo viaggio dalla lista di confronto
-    const removeFromCompare = (travelId) => {
+    const removeFromCompare = useCallback((travelId) => {
         // Creo nuovo array mantenendo tutti gli elementi TRANNE quello con l'ID specificato
         // Uso questa funzione quando l'utente clicca "X" su un viaggio nella pagina confronto
         setCompareList(compareList.filter(item => item.id !== travelId));
-    };
+    }, [compareList]); // Dipende da compareList
 
 
     // PROVIDER VALUE - ESPORTAZIONE
