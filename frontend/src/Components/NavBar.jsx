@@ -12,7 +12,12 @@ function Navbar() {
             <div className="container">
                 {/* Brand */}
                 <Link className="navbar-brand fw-bold" to="/">
-                    <i className="fas fa-plane me-2"></i>
+                    <img
+                        src="/logo.png"
+                        alt="Wanderlust Logo"
+                        className="me-2"
+                        style={{ height: '40px', width: 'auto' }}
+                    />
                     Wanderlust
                 </Link>
 
