@@ -126,7 +126,7 @@ function SearchPage() {
                                     {(searchText || selectedCategory || sortBy) && (
                                         <div className="text-center mt-3">
                                             <button
-                                                className="btn btn-outline-secondary"
+                                                className="btn btn-danger btn-lg fw-bold text-white"
                                                 onClick={() => {
                                                     setSearchText('');
                                                     setSelectedCategory('');
